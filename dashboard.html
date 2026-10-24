@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Baby Clothes POS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Admin only -->
+<body data-access="admin">
+
+  <div id="navbar"></div>
+
+  <div class="container wide">
+    <h1>Admin Dashboard</h1>
+    <p class="muted">
+      <span id="lastUpdated"></span>
+      <button class="btn btn-small" onclick="loadDashboard()">Refresh</button>
+    </p>
+
+    <!-- ===== 1. INVENTORY TRACKING ===== -->
+    <h2>Inventory Tracking</h2>
+    <div class="stat-grid">
+      <div class="card">
+        <p class="muted">Total Items</p>
+        <p class="stat-number" id="totalProducts">0</p>
+      </div>
+      <div class="card">
+        <p class="muted">Total Units in Stock</p>
+        <p class="stat-number" id="totalUnits">0</p>
+      </div>
+      <div class="card">
+        <p class="muted">Low Stock Items</p>
+        <p class="stat-number" id="lowCount">0</p>
+      </div>
+      <div class="card">
+        <p class="muted">Out of Stock Items</p>
+        <p class="stat-number" id="outCount">0</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Low Stock List</h3>
+        <div id="lowStockList"></div>
+      </div>
+      <div class="card">
+        <h3>Out of Stock List</h3>
+        <div id="outStockList"></div>
+      </div>
+    </div>
+
+    <!-- ===== 2. SALES ACTIVITY ===== -->
+    <h2>Sales Activity</h2>
+    <div class="stat-grid">
+      <div class="card">
+        <p class="muted">Today's Sales</p>
+        <p class="stat-number" id="todayTotal">₱0.00</p>
+      </div>
+      <div class="card">
+        <p class="muted">Today's Transactions</p>
+        <p class="stat-number" id="todayCount">0</p>
+      </div>
+      <div class="card">
+        <p class="muted">Last 7 Days Sales</p>
+        <p class="stat-number" id="weekTotal">₱0.00</p>
+      </div>
+      <div class="card">
+        <p class="muted">Last 7 Days Transactions</p>
+        <p class="stat-number" id="weekCount">0</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Daily Activity Report (Last 7 Days)</h3>
+      <div id="dailyTable"></div>
+    </div>
+
+    <!-- ===== 3. CHARTS ===== -->
+    <h2>Charts</h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>Sales per Day (Last 7 Days)</h3>
+        <div class="chart-box">
+          <canvas id="salesChart"></canvas>
+        </div>
+        <p id="salesChartMessage" class="muted"></p>
+      </div>
+      <div class="card">
+        <h3>Sales per Category (All Time)</h3>
+        <div class="chart-box">
+          <canvas id="categoryChart"></canvas>
+        </div>
+        <p id="categoryChartMessage" class="muted"></p>
+      </div>
+    </div>
+
+    <!-- ===== 4. LEADERBOARD ===== -->
+    <h2>Sales Leaderboard</h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>Top Selling Products</h3>
+        <div id="topProducts"></div>
+      </div>
+      <div class="card">
+        <h3>Top Cashiers</h3>
+        <div id="topCashiers"></div>
+      </div>
+    </div>
+
+    <!-- ===== 5. EMPLOYEES ===== -->
+    <h2>Employees</h2>
+    <div class="card">
+      <div id="employeeTable"></div>
+      <p id="pendingLeaves" class="muted"></p>
+    </div>
+  </div>
+
+  <!-- Chart.js from a CDN (needs internet) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

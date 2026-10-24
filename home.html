@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Baby Clothes POS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="user">
+
+  <!-- The navigation bar is built by auth.js -->
+  <div id="navbar"></div>
+
+  <div class="container">
+    <h1>Welcome to the Baby Clothes Store</h1>
+    <p>Logged in as: <strong id="welcomeText"></strong></p>
+    <p class="muted">Soft, comfortable clothes for newborns and little ones.</p>
+
+    <!-- Quick links -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>POS</h3>
+        <p>Scan up a sale, take payment, and print a receipt.</p>
+        <a href="pos.html">Open POS</a>
+      </div>
+
+      <div class="card">
+        <h3>Products</h3>
+        <p>Browse all items and prices by category.</p>
+        <a href="products.html">View Products</a>
+      </div>
+
+      <!-- Cards with class "admin-only" are removed for Cashiers -->
+      <div class="card admin-only">
+        <h3>Dashboard</h3>
+        <p>Sales, stock, and staff summary.</p>
+        <a href="dashboard.html">Open Dashboard</a>
+      </div>
+
+      <div class="card admin-only">
+        <h3>Inventory</h3>
+        <p>Add, edit, and track stock levels.</p>
+        <a href="inventory.html">Open Inventory</a>
+      </div>
+    </div>
+    <!-- The card-grid is CLOSED above. The next block must be OUTSIDE it. -->
+
+    <!-- My Attendance and My Leave (for everyone) -->
+    <div class="two-col">
+
+      <div class="card">
+        <h3>My Attendance</h3>
+        <p id="attendanceStatus"></p>
+        <button class="btn" onclick="timeIn()">Time In</button>
+        <button class="btn btn-light" onclick="timeOut()">Time Out</button>
+        <p id="attendanceMessage" class="error"></p>
+        <div id="myAttendanceTable"></div>
+      </div>
+
+      <div class="card">
+        <h3>My Leave</h3>
+        <p id="leaveBalanceText"></p>
+
+        <label for="leaveStart">From</label>
+        <input type="date" id="leaveStart" class="field">
+
+        <label for="leaveEnd">To</label>
+        <input type="date" id="leaveEnd" class="field">
+
+        <label for="leaveReason">Reason</label>
+        <input type="text" id="leaveReason" class="field" placeholder="Example: Family event">
+
+        <p id="leaveMessage" class="error"></p>
+        <button class="btn" onclick="requestLeave()">Request Leave</button>
+
+        <h4>My Requests</h4>
+        <div id="myLeaveTable"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/staff.js"></script>
+</body>
+</html>

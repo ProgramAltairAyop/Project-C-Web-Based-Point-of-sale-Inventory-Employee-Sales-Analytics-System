@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employees - Baby Clothes POS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Admin only -->
+<body data-access="admin">
+
+  <div id="navbar"></div>
+
+  <div class="container wide">
+    <h1>Employee Management</h1>
+
+    <!-- ===== 1. EMPLOYEE LIST ===== -->
+    <h2>Employee List</h2>
+    <div class="two-col">
+      <div class="card">
+        <div id="employeeList"></div>
+      </div>
+
+      <div class="card">
+        <h3>Add Employee</h3>
+        <label for="newUsername">Name (used to log in)</label>
+        <input type="text" id="newUsername" class="field" placeholder="Full name">
+
+        <label for="newPassword">Password</label>
+        <input type="text" id="newPassword" class="field" placeholder="Password">
+
+        <label for="newRole">Role</label>
+        <select id="newRole" class="field">
+          <option value="Cashier">Cashier</option>
+          <option value="Admin">Admin</option>
+        </select>
+
+        <p id="employeeMessage" class="error"></p>
+        <button class="btn" onclick="addEmployee()">Add Employee</button>
+        <p class="muted">Passwords are saved in plain text only because this is a school project with no backend.</p>
+      </div>
+    </div>
+
+    <!-- ===== 2. ATTENDANCE ===== -->
+    <h2>Time In / Time Out Records</h2>
+    <div class="card">
+      <div class="filter-row">
+        <div>
+          <label for="attDate">Date</label>
+          <input type="date" id="attDate" class="field">
+        </div>
+        <div>
+          <label for="attEmployee">Employee</label>
+          <select id="attEmployee" class="field"></select>
+        </div>
+      </div>
+      <button class="btn btn-light" onclick="clearAttendanceFilters()">Clear Filters</button>
+      <div id="attendanceTable"></div>
+    </div>
+
+    <!-- ===== 3. LEAVE REQUESTS ===== -->
+    <h2>Leave Requests</h2>
+    <div class="card">
+      <p id="leaveMessage" class="error"></p>
+      <div id="leaveTable"></div>
+    </div>
+
+    <!-- ===== 4. LEAVE BALANCES ===== -->
+    <h2>Leave Balances</h2>
+    <div class="card">
+      <div id="balanceTable"></div>
+    </div>
+
+    <!-- ===== 5. PEOPLE ANALYTICS ===== -->
+    <h2>People Analytics</h2>
+    <div class="card">
+      <div id="analyticsTable"></div>
+      <p class="muted">
+        Attendance rate = days with a Time In in the last 30 days, divided by the
+        working days (Monday to Saturday) in the last 30 days.
+        Leaves taken counts approved leave days this year.
+      </p>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/employees.js"></script>
+</body>
+</html>

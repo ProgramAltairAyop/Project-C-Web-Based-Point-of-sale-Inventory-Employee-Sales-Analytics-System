@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Baby Clothes POS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- data-access="public" means anyone can open this page -->
+<body data-access="public" class="login-body">
+
+  <!-- Centered login card -->
+  <div class="login-card">
+    <h1>Baby Clothes Store</h1>
+    <p class="subtitle">POS &amp; Inventory System</p>
+
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" required>
+
+      <!-- Error message shows here when login fails -->
+      <p id="errorMessage" class="error"></p>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

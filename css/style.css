@@ -1,0 +1,464 @@
+/* ===== Basic reset and page style ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ===== Buttons: black background, white text ===== */
+.btn {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333333;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  margin-left: 10px;
+}
+
+/* ===== Login page ===== */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  width: 340px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  text-align: center;
+}
+
+.login-card h1 {
+  margin: 0 0 5px 0;
+  font-size: 22px;
+}
+
+.subtitle {
+  margin: 0 0 25px 0;
+  color: #666666;
+  font-size: 14px;
+}
+
+.login-card form {
+  text-align: left;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.login-card .btn {
+  width: 100%;
+}
+
+/* Error message (hidden when empty) */
+.error {
+  color: #000000;
+  font-size: 13px;
+  min-height: 18px;
+  margin: 0 0 10px 0;
+}
+
+/* ===== Top bar and content (used by the other pages) ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== Navigation bar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 8px 12px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  border-color: #cccccc;
+}
+
+/* The page you are currently on */
+.nav-links a.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.nav-user {
+  font-size: 14px;
+}
+
+/* ===== Boxes / cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.card {
+  border: 1px solid #cccccc;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card a {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #cccccc;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+th {
+  background: #f2f2f2;
+}
+
+/* ===== Small helpers ===== */
+.muted {
+  color: #666666;
+  font-size: 14px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #cccccc;
+  margin: 30px 0;
+}
+
+/* ===== POS page ===== */
+.container.wide {
+  max-width: 1200px;
+}
+
+/* Two columns: products on the left, cart on the right */
+.pos-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Stack the columns on small screens */
+@media (max-width: 800px) {
+  .pos-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Input boxes */
+.field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+}
+
+.field:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+/* Product cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.product-card {
+  border: 1px solid #cccccc;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.product-card:hover {
+  border-color: #000000;
+}
+
+.product-card h4 {
+  margin: 0 0 5px 0;
+  font-size: 15px;
+}
+
+.product-card p {
+  margin: 4px 0;
+}
+
+/* Out of stock cards look faded and cannot be clicked */
+.product-card.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.product-card.disabled:hover {
+  border-color: #cccccc;
+}
+
+/* Cart */
+.pos-cart {
+  border: 1px solid #cccccc;
+  padding: 15px;
+}
+
+.pos-cart label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.total-row {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.qty-btn {
+  background: #ffffff;
+  border: 1px solid #000000;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.qty-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.qty-cell {
+  white-space: nowrap;
+}
+
+/* White button with a black border */
+.btn-light {
+  background: #ffffff;
+  color: #000000;
+}
+
+.btn-light:hover {
+  background: #eeeeee;
+}
+
+/* Receipt */
+.receipt {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.receipt h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Printing: hide everything marked "no-print" and the navigation bar */
+@media print {
+  .no-print,
+  #navbar {
+    display: none !important;
+  }
+  .pos-cart {
+    border: none;
+  }
+}
+
+/* ===== Inventory page ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0 15px;
+}
+
+.form-grid label,
+.filter-row label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+}
+
+/* Small label for the stock status */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid #000000;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Low stock / out of stock: black label with white text */
+.tag-warn {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Warning box at the top of the Inventory page */
+.stock-warning {
+  display: none;
+  border: 1px solid #000000;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+/* ===== Reports page ===== */
+.items-cell {
+  font-size: 13px;
+}
+
+/* Total row at the bottom of the report table */
+.total-line td {
+  font-weight: bold;
+  background: #f2f2f2;
+  border-top: 2px solid #000000;
+}
+
+/* ===== Dashboard ===== */
+.container h2 {
+  margin-top: 30px;
+}
+
+/* Row of small number boxes */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.stat-grid .card p {
+  margin: 0;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 5px !important;
+}
+
+/* Two boxes side by side */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Charts need a box with a fixed height */
+.chart-box {
+  position: relative;
+  height: 280px;
+}
+
+/* ===== Employees and home page boxes ===== */
+.card h4 {
+  margin: 20px 0 10px 0;
+}
+
+.card label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.card .field {
+  margin-bottom: 12px;
+}
